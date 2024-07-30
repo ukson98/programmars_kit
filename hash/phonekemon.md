@@ -30,3 +30,19 @@ int solution(vector<int> nums)
     }
     return answer;
 }
+
+# 간단한 풀이
+#include <vector>
+#include <set>
+#include <algorithm>
+using namespace std;
+
+int solution(vector<int> nums)
+{
+    int answer = 0;
+    int msize = nums.size() / 2;
+    set<int> tmp(nums.begin(), nums.end());
+    int sizes = tmp.size();
+    answer = min(sizes, msize);
+    return answer;
+}
