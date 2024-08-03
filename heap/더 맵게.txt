@@ -1,0 +1,26 @@
+#include <string>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int solution(vector<int> scoville, int K) {
+    int answer = 0;
+    sort(scoville.begin(), scoville.end());
+    while (scoville[0] < K){
+        if (scoville.size() == 1){
+            answer = -1;
+            break;
+        }
+        int l1 = scoville[0];
+        int l2 = scoville[1];
+        scoville.erase(scoville.begin());
+        scoville.erase(scoville.begin());
+        int tmp = l1 + (l2 * 2);
+        scoville.insert(scoville.begin(), tmp);
+        answer++;
+        sort(scoville.begin(), scoville.end());
+    }
+    return answer;
+}
+# 초기 시간초과 문제.
